@@ -58,7 +58,8 @@ class Tache(models.Model):
 
     projet = models.ForeignKey(Projet, on_delete=models.CASCADE, null = True, blank = True)
     date_creation = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner')
+    user_asign = models.ForeignKey(User, on_delete=models.CASCADE, related_name='asign', null=True, blank=True)
     nom = models.CharField(max_length=200)
     description = models.TextField()
     type = models.CharField(max_length=200)

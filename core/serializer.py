@@ -33,6 +33,7 @@ class TacheSerializer(WritableNestedModelSerializer, serializers.ModelSerializer
             'projet',
             'date_creation',
             'user',
+            'user_asign',
             'nom',
             'description',
             'type',
