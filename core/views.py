@@ -62,7 +62,7 @@ class TacheUserViewSet(APIView):
     permission_classes = [permissions.IsAuthenticated]
     def get(self, request, *args, **kwargs):
         print(f"l'utilisateur est {request.user}")
-        qs = Tache.objects.filter(user=request.user.id)
+        qs = Tache.objects.filter(user=request.user.id).order_by('id')
         serializer = TacheSerializer(qs, many=True, context={'request': request})
         return Response(serializer.data)
 
