@@ -54,7 +54,7 @@ urlpatterns = [
 
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('manager/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('manager/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
+    path('manager/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
     #the doc
     path(r'admindoc', schema_view, name="docs"),
