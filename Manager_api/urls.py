@@ -22,6 +22,14 @@ from django.conf import settings
 from rest_framework import routers
 from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
 from core.views import *
+from rest_framework.schemas import get_schema_view
+from rest_framework_swagger.renderers import SwaggerUIRenderer, OpenAPIRenderer
+
+# existing serializer, viewset, router registrations code
+...
+
+# Create our schema's view w/ the get_schema_view() helper method. Pass in the proper Renderers for swagger
+schema_view = get_schema_view(title='Users API', renderer_classes=[OpenAPIRenderer, SwaggerUIRenderer])
 
 
 router = routers.SimpleRouter()
@@ -47,6 +55,9 @@ urlpatterns = [
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('manager/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('manager/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
+
+    #the doc
+    path(r'admindoc', schema_view, name="docs"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

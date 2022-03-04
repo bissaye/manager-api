@@ -37,8 +37,9 @@ ALLOWED_HOSTS = ['managerapi.herokuapp.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'core',
-    'rest_framework',
     'corsheaders',
+    'rest_framework',
+    'rest_framework_swagger',
     'rest_framework_simplejwt',
     'django.contrib.admin',
     'django.contrib.auth',
